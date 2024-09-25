@@ -131,6 +131,37 @@ namespace ConsoleApp1
 
         }
 
+        static void Calculator()
+        {
+            Console.WriteLine("------ Simple Calculator ------");
+            int first_num, second_num, action, value;
+            Console.Write("Enter 1st number ");
+            first_num = int.Parse(Console.ReadLine());
+            Console.Write("Enter 2nd number ");
+            second_num = int.Parse(Console.ReadLine());
+            Console.Write("Enter the operation to be performed \n 1) Enter 1 for Addition \n 2) Enter 2 for Subtraction  \n 3) Enter 3 for Multiplication  \n 4) Enter 4 for Division \n");
+            action = int.Parse(Console.ReadLine());
+            switch (action)
+            {
+            case 1:
+                value = first_num + second_num;
+                Console.WriteLine("Sum is " + value);
+                break;
+            case 2:
+                value = first_num - second_num;
+                Console.WriteLine("Differece is " + value);
+                break;
+            case 3:
+                value = first_num * second_num;
+                Console.WriteLine("Product is " + value);
+                break;
+            case 4:
+                value = first_num / second_num;
+                Console.WriteLine("Quotient is " + value);
+                break;
+            }
+        }
+
         static void Main(string[] args)
                 {
                     Console.WriteLine("Checckkkk");
@@ -139,6 +170,7 @@ namespace ConsoleApp1
                     Multiplication();
                     CountPositiveNegative();
                     CheckEqual();
+                    Calculator();
                 }
 
 
