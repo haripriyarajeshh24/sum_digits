@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Drawing;
 namespace MethodOverloadingCsharp
 {
     class ExceptionHandling
@@ -40,7 +41,14 @@ namespace MethodOverloadingCsharp
         public string name;
         public string email;
         public string mobile;
+
+    public User(string email, string mobile)
+    {
+        this.email = email;
+        this.mobile = mobile;
     }
+    }
+
     [Serializable]
     class InvalidEmailException : Exception
     {
@@ -66,9 +74,7 @@ namespace MethodOverloadingCsharp
     {
         static void Main(string[] args)
         {
-            User user = new User();
-            user.email = "hari@gmail";
-            user.mobile = "+96238020003";
+            User user = new User("hari@gmail", "+96238020003");
             try
             {
 
