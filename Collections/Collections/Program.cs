@@ -87,6 +87,9 @@ namespace ProgramCollections
         public string name;
         public double cgpa;
 
+        private static Dictionary<int, Students> studentdict = new Dictionary<int, Students>();
+
+
         public Students(int rollno, string name, double cgpa)
         {
             this.rollno = rollno;
@@ -95,13 +98,29 @@ namespace ProgramCollections
         }
         public static void AddStudent(Students student)
         {
-            Dictionary<int, Students> studentdict = new Dictionary<int, Students>();
+            //Dictionary<int, Students> studentdict = new Dictionary<int, Students>();
             studentdict.Add(student.rollno, student);
             for (int x = 0; x < studentdict.Count; x++)
             {
                 int key = studentdict.Keys.ElementAt(x);
                 Students currentStudent = studentdict[key];
-                Console.WriteLine("{0} and {1}", key, currentStudent.name); 
+                Console.WriteLine("{0} : {1}", key, currentStudent.name); 
+
+            }
+        }
+        public static void GetStudent(int rollno)
+        {
+            try 
+            {
+                Students foun_std = studentdict[rollno];
+                if (foun_std != null)
+                {
+                    Console.WriteLine(foun_std.name);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Not Found");
             }
         }
         public static void Main()
@@ -109,10 +128,11 @@ namespace ProgramCollections
             Students student1 = new Students(1, "hari", 8.9);
             Students student2 = new Students(2, "priya", 8);
             Students student3 = new Students(3, "riya", 9);
-            AddStudent(student1);
-            AddStudent(student2);
-            AddStudent(student3);
-
+            //AddStudent(student1);
+            //AddStudent(student2);
+            //AddStudent(student3);
+            GetStudent(2);
+            GetStudent(4);
 
         }
     }
