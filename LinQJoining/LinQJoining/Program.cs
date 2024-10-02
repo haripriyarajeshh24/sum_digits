@@ -28,14 +28,14 @@ namespace Operators
             {
                 Console.WriteLine("Course with less than 3 months duration = {0} ", course.Name);
             }
-            var sortedlist = from course in courses
-                             orderby course.Name
-                             select course;
-
+            //var sortedlist = from course in courses
+            //                 orderby course.Name
+            //                 select course;
+            var sortedlist = courses.OrderBy(course => course.Name);
             Console.WriteLine("---- Sorted values ------");
 
             foreach (CourseClass sort in sortedlist)
-                Console.WriteLine(sort.Name + " \n");
+                Console.Write(sort.Name + " \n");
 
             var sum = courses.Sum(course => course.Fees);
 
@@ -46,7 +46,7 @@ namespace Operators
                 .GroupBy(course => course.Name)
                 .ToList();
 
-            Console.WriteLine("Courses less than 3 months: ");
+            Console.WriteLine("Courses less than 3 months duration: ");
             foreach (var group in filteredGrouped)
             {
                
@@ -60,7 +60,7 @@ namespace Operators
             .GroupBy(course => course.Name)
             .ToList();
 
-            Console.WriteLine("Courses less than 6 months: ");
+            Console.WriteLine("Courses less than 6 months duration: ");
             foreach (var group in filteredmonthGrouped)
             {
                 foreach (var course in group)
